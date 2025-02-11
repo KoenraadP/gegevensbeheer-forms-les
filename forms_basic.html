@@ -8,76 +8,44 @@
 </head>
 <body>
 
-    <!-- action: naar waar moet de data vestuurd worden OF naar waar moet de browser gaan na versturen -->
-    <!-- get: alle form data komt bovenaan in de adresbalk terecht -->
-    <form action="submitted.html" method="get" autocomplete="on">
+    <form action="" method="">
 
-        <!-- for en name en id best op zelfde instellen -->
-        <!-- required: verplicht in te voeren -->
-        <!-- minlength en maxlength voor tekst lengte -->
         <label for="name">Name</label><br>
-        <input required type="text" name="name" id="name" minlength="2" maxlength="30"><br>
-        
-        <!-- type="email" wordt enkel gecontroleerd als het veld effectief required is -->
+
+
         <label for="email">Email</label><br>
-        <input required type="email" name="email" id="email" placeholder="koenraad.pecceu@creo.be"><br>
 
-        <!-- regex pattern voor specifieke vereisten bij input -->
-        <!-- vraag dit gerust aan een AI systeem... -->
+
         <label for="password">Password:</label><br>
-        <input required type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Minimum eight characters, at least one letter and one number"><br>
 
-        <!-- min en max voor cijfers, datums, tijd, ... -->
+
         <label for="age">Age</label><br>
-        <input type="number" name="age" id="age" required min="18"><br>
 
-        <!-- select: dropdownlist -->
-        <!-- binnen de select options voorzien -->
+
         <label for="gender">Gender</label><br>
-        <select required name="gender" id="gender">
-            <option value="" hidden disabled selected>Kies een geslacht</option>
-            <option value="Man">Man</option>
-            <option value="Vrouw">Vrouw</option>
-            <option value="Apache attack helicopter">Apache attack helicopter</option>
-        </select><br>
+
 
         <label for="skill">Skill level</label><br>
-        <span id="skill-number">3</span><br>   
-        <input type="range" name="skill" id="skill" min="1" max="5" value="3"><br>
+        <span id="skillNumber">3</span><br>   
 
-        <br>
 
         <span>Applying for</span><br>
 
-        <br>
 
-        <input required type="radio" name="position" id="position" value="front-end">
-        <label for="front-end">front-end</label> <br>
-
-        <input type="radio" name="position" id="position" value="back-end">
-        <label for="back-end">back-end</label> <br>
-
-        <input type="radio" name="position" id="position" value="both">
-        <label for="both">both</label> <br>
-
-        <br>
-
-        <!-- yyyy-mm-dd -->
         <label for="date">Available on</label><br>
-        <input required min="2024-05-22" max="2024-06-30" type="date" name="date" id="date"> <br>
+
 
         <label for="time">From...</label><br>
-        <input required min="09:00" max="16:00" type="time" name="time" id="time"> <br>
+
 
         <label for="extra">Additional information</label><br>
-        <textarea required name="extra" id="extra" cols="30" rows="5"></textarea> <br>
+
         
-        <!-- <button>Send</button> -->
-        <input type="submit" value="Send">
+        <button>Send</button>
 
-    </form>    
+    </form>
 
-    <script src="scripts/range.js"></script>
+    
 
 </body>
 </html>
