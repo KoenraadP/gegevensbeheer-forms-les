@@ -1,54 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <form action="" method="">
+    <!-- action: waar moet de data naartoe -->
+    <!-- niet ingevuld: blijft op dezelfde pagina -->
+    <!-- get method: alle form data wordt in de url geplaatst -->
+    <!-- post method: data wordt 'versleuteld' verstuurd -->
+    <form action="submission.html" method="get">
 
+        <!-- required verplicht in te vullen -->
+        <!-- minlength en maxlength voor tekst lengte -->
         <label for="name">Name</label><br>
+        <input type="text" name="name" id="name" minlength="2" maxlength="100"><br>
 
-
+        <!-- checkt enkel op ...@... -->
         <label for="email">Email</label><br>
+        <input type="email" name="email" id="email"><br>
 
+        <!-- niet secure, enkel dat mensen rond je niet kunnen zien wat je typt -->
+        <!-- pattern: bvb voor wachtwoord complexiteit
+          best aan AI voor een regex vragen :) -->
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[,:;?!]).{8,}$"
+            title="Wachtwoord moet een hoofdletter bevatten, moet een cijfer bevatten, minstens 8 tekens en één speciaal teken uit deze: ,:;?!"><br>
 
-        <label for="password">Password:</label><br>
-
-
+        <!-- niet iedere browser gaat hier op dezelfde manier mee om -->
         <label for="age">Age</label><br>
+        <input type="number" name="age" id="age" required min="16" max="99"><br>
 
-
+        <!-- eerste option hier is gewoon om als default te tonen -->
         <label for="gender">Gender</label><br>
+        <select name="gender" id="gender">
+            <option value="" disabled selected hidden>Choose gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+            <option value="unknown">Unknown</option>
+        </select><br>
 
-
+        <!-- slider -->
+        <!-- min: waarde helemaal links -->
+        <!-- max: waarde helemaal rechts -->
+        <!-- value: op welke waarde start de slider -->
         <label for="skill">Skill level</label><br>
-        <span id="skillNumber">3</span><br>   
+        <span id="skillNumber">3</span><br>
+        <input type="range" name="skill" id="skill" min="1" max="5" value="3"><br>
 
+        <!-- je kunt zoveel checkboxes aanvinken als je wil -->
+        <label for="knowledge">Knowledge</label><br>
+        <input type="checkbox" name="knowledge" id="javascript" value="javascript">
+        <label for="javascript">JavaScript</label>
+        <input type="checkbox" name="knowledge" id="html" value="html">
+        <label for="html">HTML</label>
+        <input type="checkbox" name="knowledge" id="css" value="css">
+        <label for="css">CSS</label>
+        <input type="checkbox" name="knowledge" id="csharp" value="csharp">
+        <label for="csharp">C#</label><br>
 
-        <label for="knowledge">Knowledge</label>
-        
-
+        <!-- radio buttons: er kan maar één geselecteerd worden -->
+        <!-- ze moeten wel allemaal dezelfde "name" hebben -->
         <span>Applying for</span><br>
-
+        <input type="radio" name="position" id="front-end" value="front-end">
+        <label for="front-end">front-end</label>
+        <input type="radio" name="position" id="back-end" value="back-end">
+        <label for="back-end">back-end</label>
+        <input type="radio" name="position" id="full-stack" value="full-stack">
+        <label for="full-stack">full-stack</label><br>
 
         <label for="date">Available on</label><br>
-
-
-        <label for="time">From...</label><br>
-
-
-        <label for="extra">Additional information</label><br>
-
         
-        <button>Send</button>
+        <input type="date" name="date" id="date" required min="2025-02-13"><br>
+        <!-- <script>
+            const today = new Date().toISOString().split('T')[0];
+            console.log(today);
+            document.getElementById("date").setAttribute("min",today);
+        </script> -->
+        <label for="time">From...</label><br>
+        <input type="time" name="time" id="time" min="09:00" max="16:00"><br>
+
+        <!-- textarea van grootte veranderen is via
+         cols en rows -->
+        <label for="extra">Additional information</label><br>
+        <textarea name="extra" id="extra" cols="30" rows="10"></textarea> <br>
+
+        <!-- type vermelden om te verduidelijken -->
+        <!-- dat deze knop de gegevens moet doorsturen -->
+        <button type="submit">Send</button>
+        <!-- <input type="submit" value="Send"> -->
 
     </form>
 
-    
+    <script src="scripts/range.js"></script>
 
 </body>
+
 </html>
